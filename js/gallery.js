@@ -66,7 +66,7 @@ const images = [
 
 const gallery = document.querySelector(".gallery");
 
-gallery.addEventListener("click", clickEventImg);
+gallery.addEventListener("click", handleGalleryClick);
 
 function showGallery() {
   const previewGallery = images
@@ -90,7 +90,7 @@ function showGallery() {
 
 showGallery();
 
-function clickEventImg(e) {
+function handleGalleryClick(e) {
   e.preventDefault();
   if (e.target === e.currentTarget) return;
 
@@ -107,11 +107,11 @@ function showGalleryModal(image) {
   `,
 
   {
-      onShow: modal => {
+      onShow: () => {
         document.addEventListener('keydown', closeGalleryModal);
       },
 	
-      onClose: modal => {
+      onClose: () => {
         document.removeEventListener('keydown', closeGalleryModal);
       }
   });
